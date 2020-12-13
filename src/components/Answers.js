@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import classNames from 'classnames' 
-import { Flex, Spacer, Box, Text, Button, ButtonGroup } from '@chakra-ui/react';
+import React, {} from 'react';
+import { Flex, Text } from '@chakra-ui/react';
 
 
 const Buttons = ({correctAnswer, incorrectAnswers1, incorrectAnswers2, incorrectAnswers3}) => 
@@ -8,7 +7,8 @@ const Buttons = ({correctAnswer, incorrectAnswers1, incorrectAnswers2, incorrect
 
         <Flex
               
-                  as='button' 
+                
+              as='button' 
               h='35px' 
               mt={3}
               direction='row' 
