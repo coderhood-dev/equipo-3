@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import classNames from 'classnames'
-import { Flex, Spacer, Box, Text, Button, ButtonGroup, Spinner  } from '@chakra-ui/react';
+import { Flex, Box, Text, Spinner  } from '@chakra-ui/react';
 import Answers from './Answers.js'
 
 
@@ -32,14 +31,16 @@ const Cuestionario = () => {
 
 	// const mixAns = [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5);
 
-	const handleAnswer = (answer) => {
+	// const handleAnswer = (answer) => {
 
-		// esto es un comentario
+	// 	// esto es un comentario
 
-	}
+	// }
 
 
 	return (
+
+		// questions.length > 0 ? 
 
 		<Flex
 			w='430px'
@@ -56,7 +57,7 @@ const Cuestionario = () => {
 				<Text color='white'>
 
 
-					PREGUNTAS N°: 1
+					PREGUNTA N°: 1
 
 
 
@@ -94,6 +95,7 @@ const Cuestionario = () => {
 				mt={5}
 				position='relative'
 				top='60px'
+				// eslint-disable-next-line react/jsx-no-duplicate-props
 				w='380px' >
 
 
@@ -108,15 +110,29 @@ const Cuestionario = () => {
 					</Flex>
 
 					: (
+						
+						<Flex
+						
+							align='center'
+							justify='center'
+
+						
+						>	
+
+							<Spinner
+								
+								thickness="4px"
+								speed="0.65s"
+								emptyColor="gray.200"
+								color="blue.500"
+								size="xl"
+							/>
 
 
-						<Spinner
-						thickness="4px"
-						speed="0.65s"
-						emptyColor="gray.200"
-						color="blue.500"
-						size="xl"
-						/>
+
+
+						</Flex>
+
 					)
 
 				}
@@ -125,7 +141,30 @@ const Cuestionario = () => {
 
 		</Flex >
 
+		// : (
 
+		// 	<Flex
+						
+		// 		align='center'
+		// 		justify='center'>	
+
+		// 		<Spinner
+					
+		// 			thickness="4px"
+		// 			speed="0.65s"
+		// 			emptyColor="gray.200"
+		// 			color="blue.500"
+		// 			size="xl"
+		// 		/>
+
+
+
+
+		// 	</Flex>
+
+		// )
+
+	  
 	)
 }
 

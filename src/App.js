@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Cuestionario} from './components'
-import { Flex, Spacer, Box, Text } from '@chakra-ui/react'
+import { Flex, Box, Text } from '@chakra-ui/react'
 
 
 
@@ -17,7 +17,7 @@ function App() {
         <Box position = 'absolute' top='50px' left='480px'   > 
 
 
-          <Text >
+          <Text  >
             FILM QUIZ
           </Text>
 
