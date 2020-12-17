@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import classNames from 'classnames'
-import { Flex, Spacer, Box, Text, Button, ButtonGroup } from '@chakra-ui/react';
+import React, {  } from 'react';
+import { Flex, Text } from '@chakra-ui/react';
 
 
-const Buttons = ({ correctAnswer, incorrectAnswers1, incorrectAnswers2, incorrectAnswers3 }) =>
+const Answers = ({ correctAnswer, incorrectAnswers1, incorrectAnswers2, incorrectAnswers3 }) =>
 (
 
   <Flex
@@ -40,4 +39,4 @@ const Buttons = ({ correctAnswer, incorrectAnswers1, incorrectAnswers2, incorrec
 )
 
 
-export default Buttons; 
+export default Answers; 

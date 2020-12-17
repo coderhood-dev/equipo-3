@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames'
-import { Flex, Spacer, Box, Text, Button, ButtonGroup } from '@chakra-ui/react';
+import { Flex, Spacer, Box, Text, Button, ButtonGroup, Spinner  } from '@chakra-ui/react';
 import Answers from './Answers.js'
 
 
 const Cuestionario = () => {
 
-	const API_URL = 'https://opentdb.com/api.php?amount=10&category=11&difficulty=easy';
+	const API_URL = 'https://opentdb.com/api.php?amount=10&category=11&difficulty=medium';
 
-	const [questions, setQuestions] = useState([]);
-	const [correct_answer, setCorrect_answer] = useState('')
-	const [incorrect_answers, setIncorrect_answers] = useState([])
+	
 
 
 	useEffect(() => {
@@ -28,7 +26,7 @@ const Cuestionario = () => {
 	}, []);
 
 
-
+	const [questions, setQuestions] = useState([]);
 
 	console.log(questions)
 
@@ -53,7 +51,7 @@ const Cuestionario = () => {
 
 			<Box position='absolute' top='145px'>
 
-				<Text color='white' mb='10px' align='center'> GABY Y EMA  </Text>
+				{/* <Text color='white' mb='10px' align='center'> GABY Y EMA  </Text> */}
 
 				<Text color='white'>
 
@@ -68,17 +66,25 @@ const Cuestionario = () => {
 
 			<Box>
 
-				<Text
 
-					//dangerouslySetInnerHTML={{ __html: questions[0].question }}
-					align='center'
-					position='relative'
-					top='-10px'
-					mx='10px'>
+			{ questions.length  ?
 
+							<Text color='white'
+ 
+								dangerouslySetInnerHTML={{ __html:  questions[0].question }}
+								align='center'
+								position='relative'
+								top='-10px'
+								mx='10px'>
+			
+			
+			
+							</Text>
+			 	: null
+			 
+			 
+			 }
 
-
-				</Text>
 
 			</Box>
 
@@ -93,7 +99,7 @@ const Cuestionario = () => {
 
 
 
-				{questions.length > 0 ?
+				{questions.length ?
 					<Flex direction='column' >
 						<Answers style={{ width: '300px' }} correctAnswer={questions[0].correct_answer} />
 						<Answers style={{ width: '300px' }} incorrectAnswers1={questions[0].incorrect_answers[0]} />
@@ -104,7 +110,13 @@ const Cuestionario = () => {
 					: (
 
 
-						<Text>Cargando</Text>
+						<Spinner
+						thickness="4px"
+						speed="0.65s"
+						emptyColor="gray.200"
+						color="blue.500"
+						size="xl"
+						/>
 					)
 
 				}
