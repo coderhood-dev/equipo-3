@@ -8,7 +8,7 @@ const Answers = ({ correctAnswer, incorrectAnswers1, incorrectAnswers2, incorrec
   <Flex
 
     as='button'
-    h='35px'
+    h='48px'
     mt={3}
     direction='row'
     align='center'

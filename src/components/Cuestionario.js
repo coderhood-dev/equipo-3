@@ -50,7 +50,7 @@ const Cuestionario = () => {
 			direction='column'
 			borderRadius='24px'>
 
-			<Box position='absolute' top='145px'>
+			<Box position='absolute' top='130px' mb={2}>
 
 				{/* <Text color='white' mb='10px' align='center'> GABY Y EMA  </Text> */}
 
@@ -65,7 +65,10 @@ const Cuestionario = () => {
 
 			</Box>
 
-			<Box>
+			<Flex  
+				align='center'
+				justify='center'
+				mt='40px'>
 
 
 			{ questions.length  ?
@@ -87,7 +90,7 @@ const Cuestionario = () => {
 			 }
 
 
-			</Box>
+			</Flex >
 
 			<Flex
 				w='400px'
@@ -103,10 +106,10 @@ const Cuestionario = () => {
 
 				{questions.length ?
 					<Flex direction='column' >
-						<Answers style={{ width: '300px' }} correctAnswer={questions[0].correct_answer} />
-						<Answers style={{ width: '300px' }} incorrectAnswers1={questions[0].incorrect_answers[0]} />
-						<Answers style={{ width: '300px' }} incorrectAnswers2={questions[0].incorrect_answers[1]} />
-						<Answers style={{ width: '300px' }} incorrectAnswers3={questions[0].incorrect_answers[2]} />
+						<Answers style={{ width: '300px' }} correctAnswer={questions[0].correct_answer.replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '')} />
+						<Answers style={{ width: '300px' }} incorrectAnswers1={questions.length ? questions[0].incorrect_answers[0].replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '') : null } />
+						<Answers style={{ width: '300px' }} incorrectAnswers2={questions[0].incorrect_answers[1].replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '')} />
+						<Answers style={{ width: '300px' }} incorrectAnswers3={questions[0].incorrect_answers[2].replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '')} />
 					</Flex>
 
 					: (
