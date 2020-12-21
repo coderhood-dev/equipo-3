@@ -18,7 +18,8 @@ const Cuestionario = () => {
 
 				console.log(data.results)
 				setQuestions(data.results);
-
+				setCorrectAnswer(data.results[1].correctAnswer)
+				setIncorrectAnswers(data.results[1].incorrectAnswers)			
 
 			});
 
@@ -26,10 +27,15 @@ const Cuestionario = () => {
 
 
 	const [questions, setQuestions] = useState([]);
+	const [correctAnswer, setCorrectAnswer] = useState('')
+	const [incorrectAnswers, setIncorrectAnswers] = useState([])
 
-	console.log(questions)
 
-	// const mixAns = [correct_answer, ...incorrect_answers].sort(() => Math.random() - 0.5);
+	console.log({correctAnswer})
+	console.log({incorrectAnswers})
+
+
+	
 
 	// const handleAnswer = (answer) => {
 
@@ -48,7 +54,9 @@ const Cuestionario = () => {
 			justify='center'
 			align='center'
 			direction='column'
-			borderRadius='24px'>
+			borderRadius='24px'
+			borderWidth='10px'
+			borderColor='#c3c3c3'>
 
 			<Box position='absolute' top='130px' mb={2}>
 
@@ -78,7 +86,7 @@ const Cuestionario = () => {
 								dangerouslySetInnerHTML={{ __html:  questions[0].question }}
 								align='center'
 								position='relative'
-								top='-10px'
+								top='20px'
 								mx='10px'>
 			
 			
@@ -98,6 +106,7 @@ const Cuestionario = () => {
 				mt={5}
 				position='relative'
 				top='60px'
+				mb='25px'
 				// eslint-disable-next-line react/jsx-no-duplicate-props
 				w='380px' >
 
@@ -108,8 +117,8 @@ const Cuestionario = () => {
 					<Flex direction='column' >
 						<Answers style={{ width: '300px' }} correctAnswer={questions[0].correct_answer.replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '')} />
 						<Answers style={{ width: '300px' }} incorrectAnswers1={questions.length ? questions[0].incorrect_answers[0].replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '') : null } />
-						<Answers style={{ width: '300px' }} incorrectAnswers2={questions[0].incorrect_answers[1].replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '')} />
-						<Answers style={{ width: '300px' }} incorrectAnswers3={questions[0].incorrect_answers[2].replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '')} />
+						<Answers style={{ width: '300px' }} incorrectAnswers2={questions.length ? questions[0].incorrect_answers[1].replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '') : <Text>''</Text> } />
+						<Answers style={{ width: '300px' }} incorrectAnswers3={questions.length ? questions[0].incorrect_answers[2].replace(/&quot|&#039|&ldquo|&rdquo|;|&hellip;/g, '') : null } />
 					</Flex>
 
 					: (
@@ -169,6 +178,7 @@ const Cuestionario = () => {
 
 	  
 	)
+
 }
 
 

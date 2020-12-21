@@ -3,8 +3,11 @@ import { Flex, Text } from '@chakra-ui/react';
 
 
 const Answers = ({ correctAnswer, incorrectAnswers1, incorrectAnswers2, incorrectAnswers3 }) =>
-(
 
+
+(
+ 
+ 
   <Flex
 
     as='button'
@@ -38,5 +41,5 @@ const Answers = ({ correctAnswer, incorrectAnswers1, incorrectAnswers2, incorrec
 
 )
 
-
+console.log(Answers)
 export default Answers; 
